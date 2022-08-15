@@ -38,13 +38,10 @@ def people():
 def update():
     for person in model:
         if person.id_person == request.form['id_person']:
-            model.remove(person)
-    id_person = request.form['id_person']
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    p = Person(id_person=id_person, name=first_name, last_name=last_name)
-    model.append(p)
-    return render_template('person_detail.html', value=p)
+            person.first_name = request.form['first_name']
+            person.last_name = request.form['last_name']
+    persona = Person(id_person=request.form['id_person'], name=request.form['first_name'], last_name=request.form['last_name'])
+    return render_template('person_detail.html', value=persona)
 
 
 @app.route('/person_update/<string:id>', methods=['GET'])
