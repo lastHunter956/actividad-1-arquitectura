@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="page-header">
+        <h1>Data update form</h1>
+        <p>Are you sure you want to change your profile values? you can continue to
+            change this data as many times as you want  </p>
+        <br>
+
+        <form action="/update" method="post">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup_id">The <strong>ID</strong> of the user to be modified is:</span>
+                    <h4 class="alert-heading"><strong><input class="alert alert-success" type="text"
+                       value="{{ data['id_person'] }}" aria-label="readonly input example" name="id_person" readonly></strong></h4>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup_name">First name</span>
+                <input type="text" class="form-control" name="first_name" aria-label="Sizing example input"
+                       aria-describedby="inputGroup_name" value="{{ data['name'] }}">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup_lastName">Last Name</span>
+                <input type="text" class="form-control" name="last_name" aria-label="Sizing example input"
+                       aria-describedby="inputGroup_lastName" value="{{ data['last_name'] }}">
+            </div>
+            <br>
+            <input class="btn btn-primary" type="submit" name="form" value="Submit"/>
+        </form>
+
+    </div>
+{% endblock %}
